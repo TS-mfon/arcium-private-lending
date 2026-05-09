@@ -1,40 +1,39 @@
 # Arcium Private Lending
 
-An Arcium RTG developer submission for confidential lending and borrowing on Solana.
+Confidential lending and borrowing dapp for Solana and Arcium. The app gives users separate pages for supply/borrow, repay/withdraw, and liquidation workflows.
 
-## What It Builds
+## Live Status
 
-This repo contains an Arcium/Anchor project for private borrower accounting. User collateral, debt, LTV, health factor, and liquidation eligibility are modeled as encrypted computation inputs. Arcium computes the risk result privately and returns only the approval or liquidation settlement needed by the Solana program.
+- Network: Solana devnet
+- Program: `7W6PS52sHgz74525XbmnP7J3neRQa7HEagixu3b2ZqnV`
+- Frontend: https://arciumprivatelending.vercel.app
 
-The current generated circuit is the buildable Arcium integration base. The lending domain layer is documented in `PRIVACY.md`, `DEPLOYMENT.md`, and the Vercel demo in `app/`.
+## Fuller Dapp Flow
 
-## Frontend Demo
+1. Connect a Solana wallet.
+2. Supply USDC, deposit collateral, or request a private borrow.
+3. Repay debt, withdraw collateral, or request a health check.
+4. Submit liquidation only after a private health result marks an obligation eligible.
+5. Review the private workspace for local obligation drafts and explorer-confirmed receipts.
 
-The `app/` directory contains a static interactive frontend with borrower inputs, live LTV/health-factor decisions, and a verified deployment panel. The panel looks for public deployment metadata at `app/deployment.json`, `deployment.json`, `deployments/arcium_private_lending.json`, or `deployments/latest.json`. If no deployment JSON is present, it reads available local config such as `Anchor.toml` and shows `not deployed yet`.
+Every form sends a real wallet-signed transaction to the deployed program. The UI keeps the private lending draft in browser local storage and links it to the transaction signature so the user can verify the action on Solana Explorer without exposing full debt or collateral details.
 
-Example deployment metadata:
+## How Arcium Is Used
 
-```json
-{
-  "programId": "YourDeployedProgramId",
-  "cluster": "devnet",
-  "signature": "DeploymentTransactionSignature",
-  "deployedAt": "2026-05-03T00:00:00Z",
-  "explorerUrl": "https://explorer.solana.com/address/YourDeployedProgramId?cluster=devnet"
-}
-```
+Arcium is the confidential-computation layer for LTV, interest, health-factor, borrow-capacity, and liquidation checks. Sensitive borrower data is designed to be private input while Solana records only the public settlement and verification path.
 
-## Privacy Benefit
+The MVP program records explorer-verifiable action receipts. The privacy layer is structured so future Arcium computation can evaluate private account health while revealing only whether an action is allowed.
 
-Public lending exposes account health and invites predatory liquidation. Private computation lets protocols verify safety without broadcasting the full borrower state.
+## Privacy Benefits
 
-## Arcium Flow
+- Borrow and collateral details do not need to be public.
+- Health checks can run without broadcasting the full position.
+- Predatory liquidation monitoring becomes harder.
+- Protocol safety can remain verifiable while user account data stays confidential.
 
-1. User encrypts position data.
-2. Program queues LTV, borrow, repay, withdrawal, or liquidation computation.
-3. Arcium computes the result over encrypted shares.
-4. Callback verifies the signed output.
-5. Program executes only the public token movement required by the result.
+## Local Versus On-Chain Data
+
+The transaction receipt is on-chain. The raw lending draft shown in the private workspace is local to the browser and wallet. Clearing browser storage removes the local draft but does not remove the Solana transaction.
 
 ## Commands
 
@@ -43,10 +42,3 @@ yarn install
 arcium build
 arcium test
 ```
-
-## RTG Notes
-
-- Functional Solana/Arcium project scaffolded with `arcium init`.
-- Open-source repo ready.
-- English explanation included.
-- Frontend demo included under `app/`.
