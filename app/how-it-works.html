@@ -1,1 +1,42 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>How Private Lending Works</title><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="stylesheet" href="/site.css"/><script src="/wallet.js" defer></script></head><body><main class="shell"><header class="topbar"><a class="brand" href="/"><span class="brand-mark">L</span><span>Private Lending</span></a><nav class="nav-links"><a href="/pages/supply-borrow.html">Supply</a><a href="/pages/repay-withdraw.html">Repay</a><a href="/pages/liquidation.html">Liquidate</a><button class="wallet-trigger" type="button" data-wallet-connect>Connect wallet</button></nav></header><section class="page-head"><p class="eyebrow">How it works</p><h1>Collateral can be public while debt logic stays private.</h1><p class="lede">Wallet actions move tokens. Arcium computes sensitive LTV and liquidation checks without turning the UI into a public position board.</p></section><section class="grid"><article class="feature-card"><span>01</span><h2>Supply liquidity</h2><p>Users supply USDC to the reserve through wallet-approved transfers.</p></article><article class="feature-card"><span>02</span><h2>Borrow privately</h2><p>Debt and health checks are represented as encrypted computation inputs.</p></article><article class="feature-card"><span>03</span><h2>Liquidate fairly</h2><p>Liquidation requires verified risk output, not UI guesses.</p></article></section></main></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How Private Lending Works</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/site.css" />
+    <script src="/wallet.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/"><span class="brand-mark">L</span><span>Private Lending</span></a>
+        <nav class="nav-links"><a href="/pages/supply-borrow.html">Supply/Borrow</a><a href="/pages/repay-withdraw.html">Repay</a><a href="/pages/liquidation.html">Liquidate</a><button class="wallet-trigger" type="button" data-wallet-connect>Connect wallet</button></nav>
+      </header>
+      <section class="page-head">
+        <p class="eyebrow">How it works</p>
+        <h1>Public solvency, private borrower texture.</h1>
+        <p class="lede">The lender still gets an auditable account trail, but the user keeps the sensitive credit draft in a local workspace instead of treating the browser as a plain public filing cabinet.</p>
+      </section>
+      <section class="editorial-band">
+        <article class="editorial-copy">
+          <p class="eyebrow">Operating logic</p>
+          <ol class="step-list">
+            <li>Borrow actions mint obligation accounts on the deployed program.</li>
+            <li>Repay, withdraw, and liquidation steps emit wallet-signed receipts.</li>
+            <li>The interface decodes the resulting account and shows it back to the user.</li>
+          </ol>
+        </article>
+        <article class="route-list">
+          <p class="eyebrow">What stays local</p>
+          <ol>
+            <li>Repayment intent and planning data remain in the browser workspace.</li>
+            <li>The visible chain object is the proof of action, not the whole private context.</li>
+            <li>This keeps the workflow usable without advertising every financial move.</li>
+          </ol>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

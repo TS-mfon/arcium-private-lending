@@ -1,1 +1,78 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="Private lending and borrowing on Arcium."/><title>Arcium Private Lending</title><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="stylesheet" href="/site.css"/><script src="/wallet.js" defer></script></head><body><main class="shell"><header class="topbar"><a class="brand" href="/"><span class="brand-mark">L</span><span>Private Lending</span></a><nav class="nav-links"><a href="/how-it-works.html">How it works</a><a href="/pages/supply-borrow.html">Supply/Borrow</a><a href="/pages/repay-withdraw.html">Repay</a><a href="/pages/liquidation.html">Liquidate</a><button class="wallet-trigger" type="button" data-wallet-connect>Connect wallet</button></nav></header><section class="hero"><div><p class="eyebrow">Confidential credit</p><h1>Borrow without exposing your whole position.</h1><p class="lede">A SOL/USDC devnet lending venue designed around private health checks, wallet-confirmed actions, and explorer-verifiable settlement.</p><div class="cta-row"><a class="primary" href="/pages/supply-borrow.html">Supply or borrow</a><a class="secondary" href="/pages/repay-withdraw.html">Repay or withdraw</a></div></div><aside class="panel hero-card"><p class="eyebrow">Reserve desk</p><h2>SOL collateral. USDC liquidity.</h2><p>Move through lending actions with no fake state and private transaction feedback on the main screen.</p><div class="hero-card-grid"><div class="stat"><strong>LTV</strong><span class="muted">Private health computation</span></div><div class="stat"><strong>Pyth</strong><span class="muted">Devnet price target</span></div></div></aside></section><section class="grid"><a class="feature-card" href="/pages/supply-borrow.html"><span>01</span><h2>Supply / Borrow</h2><p>Provide liquidity or open a private borrow.</p></a><a class="feature-card" href="/pages/repay-withdraw.html"><span>02</span><h2>Repay / Withdraw</h2><p>Manage debt and collateral from a connected wallet.</p></a><a class="feature-card" href="/pages/liquidation.html"><span>03</span><h2>Liquidate</h2><p>Use verified health output before liquidation.</p></a></section></main></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Private lending and borrowing on Arcium." />
+    <title>Arcium Private Lending</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/site.css" />
+    <script src="/wallet.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/"><span class="brand-mark">L</span><span>Private Lending</span></a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="/how-it-works.html">How it works</a>
+          <a href="/pages/supply-borrow.html">Supply/Borrow</a>
+          <a href="/pages/repay-withdraw.html">Repay</a>
+          <a href="/pages/liquidation.html">Liquidate</a>
+          <button class="wallet-trigger" type="button" data-wallet-connect>Connect wallet</button>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Confidential credit</p>
+          <h1>Borrowing logic should stay inspectable without turning every wallet into a public balance sheet.</h1>
+          <p class="lede">
+            Private Lending now binds borrow obligations, repayments, and liquidation requests to live
+            Solana actions while preserving the sensitive draft details in the browser workspace.
+          </p>
+          <div class="cta-row">
+            <a class="primary" href="/pages/supply-borrow.html">Open a credit flow</a>
+            <a class="secondary" href="/pages/repay-withdraw.html">Manage an obligation</a>
+          </div>
+        </div>
+        <aside class="panel hero-card">
+          <p class="eyebrow">Credit rail</p>
+          <h2>Obligations you can read back instantly.</h2>
+          <p>
+            The borrow path mints an obligation PDA, the management pages publish real receipts, and the
+            interface shows the chain object the wallet just created.
+          </p>
+          <div class="hero-card-grid">
+            <div class="stat"><strong>Live</strong><span class="muted">Obligation accounts</span></div>
+            <div class="stat"><strong>Local</strong><span class="muted">Health drafts and loan plans</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="editorial-band">
+        <article class="editorial-copy">
+          <p class="eyebrow">Credit reading</p>
+          <h2>Private borrowing works better when the liquidation map is not the product.</h2>
+          <p class="lede">
+            Use the flow for borrower onboarding, obligation creation, and wallet-signed updates that do
+            not expose every decision as a live public target.
+          </p>
+        </article>
+        <article class="route-list">
+          <p class="eyebrow">Route map</p>
+          <ol>
+            <li>Submit supply or borrow intent and mint the live obligation when borrowing.</li>
+            <li>Publish repay or withdrawal receipts tied to the wallet.</li>
+            <li>Emit liquidation requests with a real explorer trail.</li>
+          </ol>
+        </article>
+      </section>
+
+      <section class="grid" aria-label="Lending functions">
+        <a class="feature-card" href="/pages/supply-borrow.html"><span>01</span><h2>Supply / Borrow</h2><p>Start with capital input or mint a borrow obligation on-chain.</p></a>
+        <a class="feature-card" href="/pages/repay-withdraw.html"><span>02</span><h2>Manage</h2><p>Record repayment and withdrawal intent as live receipts.</p></a>
+        <a class="feature-card" href="/pages/liquidation.html"><span>03</span><h2>Liquidate</h2><p>Track liquidation requests without dumping every draft into public state.</p></a>
+      </section>
+    </main>
+  </body>
+</html>
